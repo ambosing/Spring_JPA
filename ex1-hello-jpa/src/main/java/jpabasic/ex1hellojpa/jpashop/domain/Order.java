@@ -1,9 +1,14 @@
 package jpabasic.ex1hellojpa.jpashop.domain;
 
 import jakarta.persistence.*;
+import jpabasic.ex1hellojpa.hellojpa.Member;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "ORDERS")
 public class Order {
@@ -12,41 +17,14 @@ public class Order {
     @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
-    @Column(name = "MEMBER_ID") // 객체지향적인 설계가 아님!
-    private Long memberId;
+//    @Column(name = "MEMBER_ID") // 객체지향적인 설계가 아님!
+//    private Long memberId;
+
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    private Member member; // 가급적 단방향
+
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(Long memberId) {
-        this.memberId = memberId;
-    }
-
-    public LocalDateTime getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
 }
