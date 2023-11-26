@@ -23,7 +23,7 @@ public class MemberService {
 
     }
 
-    public List<Member> findAll() {
+    public List<Members> findAll() {
         return memberRepository.findAll();
     }
 }

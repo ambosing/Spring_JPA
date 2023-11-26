@@ -24,8 +24,8 @@ class MemberServiceTest {
         memberService.save("A");
         memberService.save("B");
 
-        List<Member> members = memberService.findAll();
-        for (Member member : members) {
+        List<Members> members = memberService.findAll();
+        for (Members member : members) {
             log.info("member : {}", member);
         }
     }

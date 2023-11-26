@@ -7,14 +7,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Member {
+public class Members extends BaseEntity {
 
     @Id
-    @GeneratedValue
-    @Column(name = "MEMBER_ID")
+    @Column(name = "MEMBERS_ID")
     private Long id;
     @Column(name = "USERNAME")
     private String name;
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;

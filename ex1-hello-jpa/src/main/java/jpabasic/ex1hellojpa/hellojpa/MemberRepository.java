@@ -16,19 +16,19 @@ public class MemberRepository {
     private static long sequence = 0;
 
     void save(String name) {
-        Member member = new Member();
+        Members member = new Members();
         member.setId(++sequence);
         member.setName(name);
         em.persist(member);
     }
 
-    Optional<Member> findById(Long id) {
-        Member member = em.find(Member.class, id);
+    Optional<Members> findById(Long id) {
+        Members member = em.find(Members.class, id);
         return Optional.of(member);
     }
 
-    List<Member> findAll() {
-        return em.createQuery("select m from Member m", Member.class).getResultList();
+    List<Members> findAll() {
+        return em.createQuery("select m from Members m", Members.class).getResultList();
     }
-    
+
 }

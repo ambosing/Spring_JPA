@@ -1,7 +1,7 @@
 package jpabasic.ex1hellojpa.jpashop.domain;
 
 import jakarta.persistence.*;
-import jpabasic.ex1hellojpa.hellojpa.Member;
+import jpabasic.ex1hellojpa.hellojpa.Members;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +22,11 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
-    private Member member; // 가급적 단방향
+    private Members member; // 가급적 단방향
+
+    @OneToOne
+    @JoinColumn(name = "DELIVERY_ID")
+    private Delivery delivery;
 
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
