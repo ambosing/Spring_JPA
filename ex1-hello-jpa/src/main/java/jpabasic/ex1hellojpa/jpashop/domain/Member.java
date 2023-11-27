@@ -17,9 +17,9 @@ public class Member {
     private Long id;
     @Column(name = "USERNAME")
     private String name;
-    private String city;
-    private String street;
-    private String zipcode;
+
+    @Embedded
+    private Address address;
 
     @OneToMany()
     @JoinColumn(name = "ORDER_ID")

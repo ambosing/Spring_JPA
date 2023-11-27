@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Album extends Items {
+public class Albums extends Items {
     private String artist;
 }

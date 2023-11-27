@@ -1,4 +1,4 @@
-package jpabasic.ex1hellojpa.hellojpa;
+package jpabasic.ex1hellojpa.jpashop.domain;
 
 import jakarta.persistence.Entity;
 import lombok.Getter;
@@ -7,7 +7,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Book extends Items {
+public class Book extends Item {
+
     private String author;
     private String isbn;
 }
